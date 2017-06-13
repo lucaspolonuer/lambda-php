@@ -1,3 +1,4 @@
+<?php
 class Lambda{
 	private $predicate;
 	private $params;
@@ -63,3 +64,4 @@ function times($lambda, $times, $value){
 	}
 	return $result;
 }
+?>
