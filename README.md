@@ -40,17 +40,32 @@ Lambda::_("element -> element *2") (5);
 ### Map
 ```php
 $arr = [2, 2, 2, 2];
-map(Lambda::_("element -> element *2"), $arr);
+$arr_result = map(Lambda::_("element -> element *2"), $arr);
+
+print_r($arr_result);
 ```
 ```sh
 >[4, 4, 4, 4]
+```
+### Filter
+```php
+$lam = Lambda::_("a, b -> a == b");
+$arr = [[2,2], [3,3], [1,7], [6,6]];
+$arr_filtered = filter($lam, $arr);
+
+print_r($arr_result);
+```
+```sh
+>[[2,2], [3,3], [6, 6]]
 ```
 
 ### Times
 ```php
 $lambda = Lambda::_("element -> element *2");
 $num = 5;
-times($lambda, 3, $num);
+$result = times($lambda, 3, $num);
+
+echo $result;
 ```
 ```sh
 >40
@@ -84,10 +99,21 @@ echo $condition(1,2,3);
 ```
 
 ```php
-map(Lambda::_("str -> echo str . '. '"), ["Onions", "Eggs", "Just stuff"]);
+$arr = map(Lambda::_("str -> echo str . '. '"), ["Onions", "Eggs", "Just stuff"]);
+
+print_r($arr);
 ```
 ```sh
 >Onions. Eggs. Just stuff.
+```
+
+```php
+$arr = map(Lambda::_("a, b -> a + b"), [[1,1], [2,2], [3,3], [7,3]]);
+
+print_r($arr);
+```
+```sh
+>[2, 4, 6, 10]
 ```
 
 
